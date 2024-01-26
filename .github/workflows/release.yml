@@ -17,14 +17,14 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 20
-      
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
       - name: Lint
         run: |
           yarn global add eslint
           yarn lint
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
 
       - name: Conditional Make
         run: |
