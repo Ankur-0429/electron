@@ -28,7 +28,7 @@ jobs:
 
       - name: Make
         run: |
-          if [ "${{ startsWith(github.ref, 'refs/tags/') }}" != "true" ]; then
+          if: !startsWith(github.ref, 'refs/tags/')
             npm run make
           else
             echo "Tag push detected. Skipping make."
@@ -38,7 +38,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ "${{ startsWith(github.ref, 'refs/tags/') }}" == "true" ]; then
+          if: startsWith(github.ref, 'refs/tags/')
             npm run publish
           else
             echo "Not a tag push. Skipping publish."
