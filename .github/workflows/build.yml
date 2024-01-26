@@ -15,6 +15,6 @@ jobs:
         with:
           node-version: 20
       - name: install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: make
         run: npm run make
