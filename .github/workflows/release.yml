@@ -28,7 +28,7 @@ jobs:
 
       - name: Make
         run: |
-          if: !startsWith(github.ref, 'refs/tags/')
+          if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
             npm run make
           else
             echo "Tag push detected. Skipping make."
