@@ -19,7 +19,9 @@ jobs:
           node-version: 20
       
       - name: Lint
-        run: yarn lint
+        run: |
+          yarn global add eslint
+          yarn lint
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
